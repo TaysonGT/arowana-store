@@ -25,15 +25,15 @@ const Navbar:React.FC<Props> = ({fixable}) => {
   },[])
 
   return (
-    <div className={`w-full z-99 py-10 bg-white text-black duration-150 ${fixable&& scroll>300?'fixed top-0 left-0 shadow-xl': '-top-[100%]'}`}>
-        <div className='flex basis-0 w-[80%] mx-auto'>
+    <div className={`w-full z-99 py-[10px] bg-white text-black duration-150 ${fixable&& scroll>300?'fixed top-0 left-0 shadow-xl': '-top-[100%]'}`}>
+        <div className='flex w-[80%] mx-auto'>
             <div className='flex items-center flex-1 p-2'>
-              <img src={Logo} className='h-full' alt="" />
+              <img src={Logo} className='' alt="" />
             </div>
-            <ul className='flex gap-12 text-md justify-center text-xl font-bold items-center flex-1'>
+            <ul className='flex gap-12 text-md justify-center font-bold items-center flex-1'>
               {links.map((link, i)=>
                 <div key={i} className='duration-150 relative group/primary select-none z-[9] cursor-pointer'>
-                  <Link className='inline-block py-3' to={link.path}>{link.name}</Link>
+                  <Link className='inline-block py-5' to={link.path}>{link.name}</Link>
                   {link.children&&
                   <div className='absolute group-hover/primary:opacity-100 group-hover/primary:top-[100%] group-hover/primary:scale-y-100 origin-top scale-y-95 pointer-events-none group-hover/primary:pointer-events-auto opacity-0 top-[80%] bg-white text-black shadow-lg text-sm duration-400'>
                     {link.children.map((child, x)=> 
@@ -58,8 +58,8 @@ const Navbar:React.FC<Props> = ({fixable}) => {
                 </div>
               )}
             </ul>
-            <div className='flex items-center font-test gap-8 justify-end flex-1 text-3xl'>
-                <select className='text-xl font-bold'>
+            <div className='flex items-center font-test gap-6 justify-end text-xl flex-1'>
+                <select className='font-bold font-[Playfair] text-base'>
                   <option value='usd'>USD</option>
                 </select>
                 <MdOutlineSearch onClick={()=>console.log(true)} className='cursor-pointer hover:scale-[1.15] duration-200'/>

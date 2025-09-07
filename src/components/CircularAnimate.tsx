@@ -25,7 +25,7 @@ const CircularMotion: React.FC<PropsWithChildren<CircularMotionProps>> = ({
 
   React.useEffect(() => {
     const animation = () => {
-      progress.set(progress.get() + 0.002);
+      progress.set(progress.get() + 0.0009);
       requestAnimationFrame(animation);
     };
     

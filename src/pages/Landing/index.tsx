@@ -44,8 +44,8 @@ const LandingPage = () => {
           <div className='flex-1 h-full flex flex-col justify-center items-start gap-8 pr-4'>
             <p className='text-2xl font-bold'>Welcome to our shop</p>
             <h1 className='text-5xl font-bold'>Explore Top Brand Face Toner!</h1>
-            <p className='text-wrap text-xl'>Predictive analytics is drastically changing the real estate industry. In the past, providing data for quick</p>
-            <button className='px-8 py-3 bg-[#FFB400] text-white text-lg font-bold'>SHOP NOW</button>
+            <p className='text-wrap text-xl font-[Playfair]'>Predictive analytics is drastically changing the real estate industry. In the past, providing data for quick</p>
+            <button className='px-8 py-3 z-0 bg-[#FFB400] hover:bg-transparent hover:text-black border border-[#FFB400] hover:border-black duration-400 text-white text-lg font-bold shop_now cursor-pointer'>SHOP NOW</button>
           </div>
           <div className=' flex-1 h-full'>
             <CircularMotion>
@@ -54,17 +54,17 @@ const LandingPage = () => {
           </div>
         </div>
       </section>
-      <section className='flex h-screen w-full grow items-center justify-center basis-0'>
+      <section className='flex py-30 w-full grow items-center justify-center basis-0'>
         <div className='w-[80%] mx-auto flex gap-8'>
 
-          <div className='flex-1 h-full flex flex-col justify-center items-start gap-8 p-4'>
+          <div className='flex-1 flex flex-col justify-center items-start gap-8 p-4'>
             <p className='text-2xl font-bold'>Provide the best</p>
             <h1 className='text-5xl font-bold'>Beard Oil For You</h1>
-            <p className='text-wrap text-xl'>We provide the best Beard oil all over the world. We are the worldd best store for Beard Oil. You can buy our product without any hegitation because we always consus about our product quality and always maintain it properly so your can trust and this is our main goal we belive that...</p>
-            <p className='text-wrap text-xl'>Some of our customer say’s that they trust us and buy our product without any hagitation because they belive us and always happy</p>
-            <button className='px-8 py-3 bg-transparent border-3 border-black text-lg font-bold'>VIEW MORE</button>
+            <p className='text-wrap text-xl font-[Playfair]'>We provide the best Beard oil all over the world. We are the worldd best store for Beard Oil. You can buy our product without any hegitation because we always consus about our product quality and always maintain it properly so your can trust and this is our main goal we belive that...</p>
+            <p className='text-wrap text-xl font-[Playfair]'>Some of our customer say’s that they trust us and buy our product without any hagitation because they belive us and always happy</p>
+            <button className='px-8 py-3 bg-transparent border-1 cursor-pointer border-black text-lg hover:text-white hover:border-[#FFB400] hover:bg-[#FFB400] duration-400 font-bold view_more relative overflow-hidden'>VIEW MORE</button>
           </div>
-          <div className=' flex-1 h-full'>
+          <div className='flex-1 pl-6'>
             <img src='/src/assets/imgs/6.png' alt="" />
           </div>
         </div>
