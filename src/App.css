@@ -1,0 +1,16 @@
+@import 'tailwindcss';
+
+@font-face {
+    font-family: test;
+    src: url('/src/assets/fonts/icomoon.ttf') format('truetype');
+}
+
+@theme {
+    --animate-round: round;
+}
+
+@keyframes round {
+    from{
+        
+    }
+}
