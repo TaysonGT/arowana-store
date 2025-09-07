@@ -37,8 +37,6 @@ const CircularMotion: React.FC<PropsWithChildren<CircularMotionProps>> = ({
     <div className='h-full relative'>
       <motion.div
         style={{
-        //   width: size,
-        //   height: size,
           position: 'absolute',
           x,
           y

@@ -3,19 +3,36 @@ import { links } from './links'
 import { Link } from 'react-router'
 import { FaArrowRight } from 'react-icons/fa'
 import { MdOutlineSearch } from 'react-icons/md'
-import { RiShoppingCart2Line, RiUserLine } from 'react-icons/ri'
+import { RiUserLine } from 'react-icons/ri'
 import { PiShoppingCart } from 'react-icons/pi'
+import { useEffect, useState } from 'react'
 
-const Navbar = () => {
+interface Props {
+  fixable?: boolean;
+}
+
+const Navbar:React.FC<Props> = ({fixable}) => {
+  const [scroll, setScroll] = useState<number>(0)
+
+  useEffect(()=>{
+    window.addEventListener('scroll', ()=>{
+      setScroll(window.scrollY)
+    })
+
+    return ()=>window.removeEventListener('scroll', ()=>{
+      setScroll(window.scrollY)
+    })
+  },[])
+
   return (
-    <div className='w-full z-99 py-10 bg-white'>
+    <div className={`w-full z-99 py-10 bg-white text-black duration-150 ${fixable&& scroll>300?'fixed top-0 left-0 shadow-xl': '-top-[100%]'}`}>
         <div className='flex basis-0 w-[80%] mx-auto'>
             <div className='flex items-center flex-1 p-2'>
               <img src={Logo} className='h-full' alt="" />
             </div>
             <ul className='flex gap-12 text-md justify-center text-xl font-bold items-center flex-1'>
               {links.map((link, i)=>
-                <div key={i} className='group-hover:text-[#418791] duration-150 relative group/primary select-none z-[9] cursor-pointer'>
+                <div key={i} className='duration-150 relative group/primary select-none z-[9] cursor-pointer'>
                   <Link className='inline-block py-3' to={link.path}>{link.name}</Link>
                   {link.children&&
                   <div className='absolute group-hover/primary:opacity-100 group-hover/primary:top-[100%] group-hover/primary:scale-y-100 origin-top scale-y-95 pointer-events-none group-hover/primary:pointer-events-auto opacity-0 top-[80%] bg-white text-black shadow-lg text-sm duration-400'>

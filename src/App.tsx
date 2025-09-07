@@ -11,11 +11,6 @@ function App() {
     <ToastContainer 
       position='top-left' 
       theme='dark'
-      // style={}
-      // containerStyle={
-      //   { zIndex: 9999, marginTop: '80px', userSelect: "none"} 
-      // }
-
     />
     <Routes>
       <Route path='/' element={<LandingPage />}/>
