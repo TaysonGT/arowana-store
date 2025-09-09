@@ -1,7 +1,7 @@
 const Third = () => {
   return (
     <section className='flex w-full grow items-center justify-center basis-0 bg-[#F2F6F7]'>
-        <div className='w-[80%] mx-auto flex gap-8'>
+        <div className='w-[80%] mx-auto flex gap-4'>
 
           <div className='flex-1 flex flex-col justify-center items-start gap-2 p-4 py-40 bg-[url(/src/assets/imgs/3rd-left.png)] bg-cover'>
             <p className='text-2xl font-bold uppercase'>Grow It</p>

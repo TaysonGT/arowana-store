@@ -1,0 +1,28 @@
+{
+  "testimonials": [
+    {
+      "name": "Sarah Johnson",
+      "content": "This product completely transformed my skincare routine. I've never felt more confident in my skin!"
+    },
+    {
+      "name": "Michael Chen",
+      "content": "Outstanding quality and fast shipping. Will definitely be purchasing again from this store."
+    },
+    {
+      "name": "Emily Rodriguez",
+      "content": "The beard oil is absolutely fantastic. My beard has never been softer or more manageable."
+    },
+    {
+      "name": "David Thompson",
+      "content": "Excellent customer service and top-notch products. Highly recommend this shop to everyone."
+    },
+    {
+      "name": "Jessica Williams",
+      "content": "I've tried many similar products, but none compare to what I found here. Truly exceptional quality."
+    },
+    {
+      "name": "Robert Martinez",
+      "content": "Quick delivery and the product exceeded my expectations. Will be a returning customer for sure."
+    }
+  ]
+}

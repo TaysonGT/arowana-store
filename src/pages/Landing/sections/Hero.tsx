@@ -29,8 +29,8 @@ const Hero = () => {
             <SwiperSlide>
               <Slide2/>
             </SwiperSlide>
-            <button ref={nextRef} onClick={()=>console.log('s')} className='absolute top-1/2 right-15 group-hover:right-10 -translate-y-1/2 group-hover:opacity-100 ease-in-out opacity-0 z-10 p-6 border border-gray-200 cursor-pointer text-2xl hover:border-[#FFB400] hover:bg-[#FFB400] hover:text-white duration-150'><FaArrowRight/></button>
-            <button ref={prevRef} onClick={()=>console.log('d')} className='absolute top-1/2 left-15 group-hover:left-10 -translate-y-1/2 group-hover:opacity-100 ease-in-out opacity-0 z-10 p-6 border border-gray-200 cursor-pointer text-2xl hover:border-[#FFB400] hover:bg-[#FFB400] hover:text-white duration-150'><FaArrowLeft/></button>
+            <button ref={nextRef} className='absolute top-1/2 right-15 group-hover:right-10 -translate-y-1/2 group-hover:opacity-100 ease-in-out opacity-0 z-10 p-6 border border-gray-200 cursor-pointer text-2xl hover:border-[#FFB400] hover:bg-[#FFB400] hover:text-white duration-150'><FaArrowRight/></button>
+            <button ref={prevRef} className='absolute top-1/2 left-15 group-hover:left-10 -translate-y-1/2 group-hover:opacity-100 ease-in-out opacity-0 z-10 p-6 border border-gray-200 cursor-pointer text-2xl hover:border-[#FFB400] hover:bg-[#FFB400] hover:text-white duration-150'><FaArrowLeft/></button>
           </Swiper>
         </div>
     </section>

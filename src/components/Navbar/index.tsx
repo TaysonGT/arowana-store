@@ -25,7 +25,7 @@ const Navbar:React.FC<Props> = ({fixable}) => {
   },[])
 
   return (
-    <div className={`w-full z-99 py-[10px] bg-white text-black duration-150 ${fixable&& scroll>300?'fixed top-0 left-0 shadow-xl': '-top-[100%]'}`}>
+    <div className={`w-full z-99 py-[10px] bg-white text-black duration-150 ${fixable&& scroll>300?'fixed animate-slide-in z-300 shadow-xl': 'relative'}`}>
         <div className='flex w-[80%] mx-auto'>
             <div className='flex items-center flex-1 p-2'>
               <img src={Logo} className='' alt="" />
