@@ -1,3 +1,4 @@
+import Fourth from './sections/Fourth'
 import Hero from './sections/Hero'
 import ProductsPreview from './sections/ProductsPreview'
 import Second from './sections/Second'
@@ -11,6 +12,7 @@ const LandingPage = () => {
       <Second/>
       <Third/>
       <ProductsPreview/>
+      <Fourth/>
     </div>
   )
 }

@@ -1,4 +1,4 @@
-import React, { type PropsWithChildren } from 'react';
+import React, { useEffect, type PropsWithChildren } from 'react';
 import { motion, useMotionValue, useTransform } from 'framer-motion';
 
 interface CircularMotionProps {
@@ -23,7 +23,7 @@ const CircularMotion: React.FC<PropsWithChildren<CircularMotionProps>> = ({
     return Math.sin(value * 2 * Math.PI) * radius;
   });
 
-  React.useEffect(() => {
+  useEffect(() => {
     const animation = () => {
       progress.set(progress.get() + 0.0009);
       requestAnimationFrame(animation);

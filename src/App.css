@@ -57,3 +57,11 @@
     height: 100%; /* Or a specific height if needed */
     object-fit: cover; /* For images to cover the area */
 }
+
+.swiper-container{
+    overflow: clip;
+}
+
+.swiper{
+    overflow: visible;
+}
