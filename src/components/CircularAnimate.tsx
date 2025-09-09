@@ -34,7 +34,7 @@ const CircularMotion: React.FC<PropsWithChildren<CircularMotionProps>> = ({
   }, [progress]);
 
   return (
-    <div className='h-full relative'>
+    <motion.div className='relative bg-red-400'>
       <motion.div
         style={{
           position: 'absolute',
@@ -44,7 +44,7 @@ const CircularMotion: React.FC<PropsWithChildren<CircularMotionProps>> = ({
       >
         {children}
       </motion.div>
-    </div>
+    </motion.div>
   );
 };
 

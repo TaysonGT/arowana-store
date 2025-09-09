@@ -50,4 +50,10 @@
     left: 100%;
     background: #000;
 }
-        
+
+.swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%; /* Or a specific height if needed */
+    object-fit: cover; /* For images to cover the area */
+}

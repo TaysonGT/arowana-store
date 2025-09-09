@@ -1,8 +1,9 @@
 import { BrowserRouter, Route, Routes } from 'react-router'
 import './App.css'
 import { ToastContainer } from 'react-toastify'
-import PublicRoutes from './routes/PublicRoutes'
 import LandingPage from './pages/Landing'
+import 'swiper/css'
+import 'swiper/css/navigation'
 
 function App() {
   return (
