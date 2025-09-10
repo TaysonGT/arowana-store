@@ -1,5 +1,6 @@
 import { Navigation } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { Swiper as SwiperType } from 'swiper';
 import { FaArrowLeft, FaArrowRight, FaEye } from 'react-icons/fa';
 import { PiHeart, PiShoppingCart } from 'react-icons/pi';
 import { useEffect, useRef, useState } from 'react';
@@ -7,8 +8,7 @@ import axios from 'axios';
 
 const ProductSlider = ({ tag }: { tag: string }) => {
   const [products, setProducts] = useState<any[]>([]);
-  const nextRef = useRef<HTMLButtonElement>(null);
-  const prevRef = useRef<HTMLButtonElement>(null);
+  const swiperRef = useRef<SwiperType|null>(null)
 
   const refetch = async () => {
     setProducts([]);
@@ -29,21 +29,17 @@ const ProductSlider = ({ tag }: { tag: string }) => {
       spaceBetween={50}
       slideFullyVisibleClass=''
       slidesPerView={4}
-      onSwiper={(swiper) => console.log(swiper)}
-      navigation={{
-        nextEl: nextRef.current,
-        prevEl: prevRef.current,
-      }}
+      onSwiper={(swiper) => swiperRef.current = swiper}
       className="relative !overflow-visible !overflow-x-clip "
     >
       <button
-        ref={nextRef}
-        className="absolute top-1/2 right-15 group-hover/cards:right-10 group-hover/cards:opacity-100 ease-in-out opacity-0 z-10 p-3 rounded-full border border-gray-200 cursor-pointer text-xl hover:border-[#FFB400] hover:bg-[#FFB400] hover:text-white duration-150"
+      onClick={()=>swiperRef.current?.slideNext()}
+      className="absolute top-1/2 right-15 group-hover/cards:right-10 group-hover/cards:opacity-100 ease-in-out opacity-0 z-10 p-3 rounded-full border border-gray-200 cursor-pointer text-xl hover:border-[#FFB400] hover:bg-[#FFB400] hover:text-white duration-150"
       >
         <FaArrowRight />
       </button>
       <button
-        ref={prevRef}
+        onClick={()=>swiperRef.current?.slidePrev()}
         className="absolute top-1/2 left-15 group-hover/cards:left-10 group-hover/cards:opacity-100 ease-in-out opacity-0 z-10 p-3 rounded-full border border-gray-200 cursor-pointer text-xl hover:border-[#FFB400] hover:bg-[#FFB400] hover:text-white duration-150"
       >
         <FaArrowLeft />

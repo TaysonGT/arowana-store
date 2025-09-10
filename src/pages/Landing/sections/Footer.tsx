@@ -6,7 +6,7 @@ import { BsSendArrowUpFill } from 'react-icons/bs'
 
 const Footer = () => {
   return (
-    <footer className='w-full text-black bg-[#F2F6F7] py-20'>
+    <footer className='w-full text-black bg-[#F2F6F7] pt-20'>
         <div className="w-[90%] mx-auto flex justify-between basis-0 gap-10">
             <div className='font-[Playfair] flex-2'>
                 <div className='flex items-center flex-1 p-2'>
@@ -79,6 +79,16 @@ const Footer = () => {
                     <div className='w-full bg-white'>
                         <img src="/src/assets/imgs/payment-4.png" alt="" />
                     </div>
+                </div>
+            </div>
+        </div>
+        <div className='w-full text-center mt-20 border-t text-white border-gray-300 py-8 bg-[#071c1f]'>
+            <div className='w-[90%] mx-auto flex justify-between'>
+                <p className='text-sm'>&copy; 2024 Arowana. All Rights Reserved.</p>
+                <div className='flex gap-6 font-bold'>
+                    <a href='#' className='text-sm'>Terms & Conditions</a>
+                    <a href='#' className='text-sm'>Claim</a>
+                    <a href='#' className='text-sm'>Privacy & Policy</a>
                 </div>
             </div>
         </div>
