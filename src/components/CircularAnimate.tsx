@@ -10,7 +10,6 @@ interface CircularMotionProps {
 
 const CircularMotion: React.FC<PropsWithChildren<CircularMotionProps>> = ({
   radius = 100,
-  duration = 10,
   children
 }) => {
   const progress = useMotionValue(0);

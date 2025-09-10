@@ -28,7 +28,7 @@ export const links = [
   },
   {
     name: "Products",
-    path: "#",
+    path: "/products",
   },
   {
     name: "Kits",

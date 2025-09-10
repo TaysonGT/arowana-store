@@ -1,6 +1,5 @@
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Swiper as SwiperType } from 'swiper'
-import Navbar from '../../../components/Navbar'
 import Slide1 from '../hero-slides/Slide1'
 import Slide2 from '../hero-slides/Slide2'
 

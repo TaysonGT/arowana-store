@@ -3,7 +3,7 @@ import { LiaShippingFastSolid } from 'react-icons/lia'
 import { PiMedal } from 'react-icons/pi'
 import { RiCustomerService2Line } from 'react-icons/ri'
 
-const Nineth = () => {
+const Features = () => {
   return (
     <section className='w-full flex mx-auto px-20 relative before:absolute before:bottom-0 before:left-0 before:w-full before:h-1/2 before:-z-1 before:bg-[#F2F6F7]'>
         <div className='flex w-full bg-white shadow-xl py-8'>
@@ -40,4 +40,4 @@ const Nineth = () => {
   )
 }
 
-export default Nineth
+export default Features

@@ -3,9 +3,12 @@ import Logo from '/src/assets/imgs/logo.png'
 import { PiPhoneCallThin } from 'react-icons/pi'
 import { FaFacebookF, FaLinkedinIn, FaTwitter, FaYoutube } from 'react-icons/fa'
 import { BsSendArrowUpFill } from 'react-icons/bs'
+import Features from '../Features'
 
 const Footer = () => {
   return (
+    <>
+    <Features/>
     <footer className='w-full text-black bg-[#F2F6F7] pt-20'>
         <div className="w-[90%] mx-auto flex justify-between basis-0 gap-10">
             <div className='font-[Playfair] flex-2'>
@@ -93,6 +96,7 @@ const Footer = () => {
             </div>
         </div>
     </footer>
+    </>
   )
 }
 
