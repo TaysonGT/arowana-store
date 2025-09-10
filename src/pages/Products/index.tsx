@@ -53,6 +53,10 @@ const ProductsPage = () => {
         }else{
             searchParams.delete('category')
         }
+        searchParams.delete('page')
+        searchParams.delete('q')
+        setSearchString('')
+        setPageCount(1)
         setSearchParams(searchParams)
     }
 
@@ -97,7 +101,7 @@ const ProductsPage = () => {
             <p className="text-black font-bold font-[Playfair] mt-4 flex items-center gap-2">Home <MdArrowForwardIos className="text-sm"/> <span className='text-[#071c1f]'>Shop</span></p>
         </div>
         <div className="w-[80%] flex mx-auto my-20 gap-8">
-            <div className="w-[75%] shrink-0 flex flex-col">
+            <div className="grow flex flex-col">
                 <div className="basis-0 flex">
                     <div className="flex items-center gap-4 flex-1">
                         <IoGrid/>
@@ -138,7 +142,7 @@ const ProductsPage = () => {
                     <div onClick={()=>changePage('end')} className={`w-12 hover:bg-[#FFB400] hover:text-white hover:border-[#FFB400] cursor-pointer  duration-150 aspect-square flex justify-center items-center border border-${pageCount<maxPages? 'black  cursor-pointer': 'gray-200 text-gray-500 cursor-not-allowed'}`}><MdKeyboardDoubleArrowRight/></div>
                 </div>
             </div>
-            <div className="grow flex flex-col gap-10">
+            <div className="flex flex-col gap-10 w-90 shrink-0">
                 <div className="p-10 shadow-lg">
                     <h1 className="text-xl font-bold">Product Categories</h1>
                     <div className="flex flex-col gap-4 mt-8">
@@ -164,7 +168,7 @@ const ProductsPage = () => {
                 <div className="p-10 w-full overflow-hidden shadow-lg">
                     <h1 className="text-xl font-bold mb-6">Filter By Price</h1>
                     <div className="flex justify-between mb-4 items-center">
-                        <p>Your range:</p><p className="font-bold">{value[0]}$ - {value[1]}$</p>
+                        <p>Your range:</p><p className="font-bold">${value[0]} - ${value[1]}</p>
                     </div>
                     <Slider
                         getAriaLabel={() => 'Temperature range'}
@@ -178,7 +182,9 @@ const ProductsPage = () => {
                     />
                 </div>
                 <div className="w-full overflow-hidden shadow-lg">
-                    <img className="h-full" src="/src/assets/imgs/promo/13.jpg" alt="" />
+                    <a href='#'>
+                        <img className="h-full" src="/src/assets/imgs/promo/13.jpg" alt="" />
+                    </a>
                 </div>
             </div>
         </div>

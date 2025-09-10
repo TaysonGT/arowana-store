@@ -16,7 +16,9 @@ const ProductCard = ({product}:{product:any}) => {
             </button>
         </div>
         <div className="min-h-50">
-            <img className="h-full object-cover" src={product.images[0]} alt="" />
+            <a href='#'>
+                <img className="h-full object-cover" src={product.images[0]} alt="" />
+            </a>
         </div>
         <p className="font-[Playfair] text-lg font-bold text-center">{product.title}</p>
         <div className="flex items-center gap-2">

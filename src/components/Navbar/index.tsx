@@ -5,6 +5,10 @@ import { MdOutlineSearch } from 'react-icons/md'
 import { RiUserLine } from 'react-icons/ri'
 import { PiShoppingCart } from 'react-icons/pi'
 import { useEffect, useState } from 'react'
+import DarkBackground from '../ui/DarkBackground'
+import Cart from '../Cart'
+import { LightBackground } from '../ui'
+import SearchBar from '../SearchBar'
 
 interface Props {
   fixable?: boolean;
@@ -12,7 +16,9 @@ interface Props {
 
 const Navbar:React.FC<Props> = ({fixable}) => {
   const [scroll, setScroll] = useState<number>(0)
-
+  const [showCart, setShowCart] = useState<boolean>(false)
+  const [showSearchbar, setShowSearchbar] = useState<boolean>(false)
+  
   const handleScroll = ()=>{
     setScroll(window.scrollY)
   }
@@ -22,9 +28,17 @@ const Navbar:React.FC<Props> = ({fixable}) => {
     
     return ()=>window.removeEventListener('scroll', handleScroll)
   },[])
-
+  
   return (
     <div className={`w-full z-99 py-[10px] bg-white text-black duration-150 ${fixable&& scroll>200?'fixed animate-slide-in z-300 shadow-xl': 'relative'}`}>
+      
+      {/* CART COMPONENT */}
+      <DarkBackground {... {setShow: (v)=> setShowCart(v), show: showCart}} />
+      <Cart {...{setShow: (v)=> setShowCart(v), show: showCart}}/>
+
+      <LightBackground {...{setShow: (v)=> setShowSearchbar(v), show: showSearchbar}} />
+      <SearchBar {...{showSearchbar, setShowSearchbar: (v)=> setShowSearchbar(v)}} />
+
         <div className='flex w-[80%] mx-auto'>
             <div className='flex items-center flex-1 p-2'>
               <img src={Logo} className='' alt="" />
@@ -49,9 +63,9 @@ const Navbar:React.FC<Props> = ({fixable}) => {
                 <select className='font-bold font-[Playfair] text-base'>
                   <option value='usd'>USD</option>
                 </select>
-                <MdOutlineSearch onClick={()=>console.log(true)} className='cursor-pointer hover:scale-[1.15] duration-200'/>
+                <MdOutlineSearch onClick={()=>setShowSearchbar(true)} className='cursor-pointer hover:scale-[1.15] duration-200'/>
                 <Link to='/'><RiUserLine className='hover:scale-[1.15] duration-200'/></Link>
-                <div onClick={()=> console.log(true)} className='cursor-pointer group relative'>
+                <div onClick={()=> setShowCart(true)} className='cursor-pointer group relative'>
                   <PiShoppingCart className='group-hover:scale-[1.15] duration-200 '/>
                   <span className='absolute -top-1 -right-2 text-xs text-gray-700 font-bold'>0</span>
                 </div>

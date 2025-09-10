@@ -13,7 +13,7 @@ const LightBackground:React.FC<Props> = ({setShow, show})=>{
     return (
         cond?
         <div 
-            className={`w-screen h-screen fixed top-full left-0 z-[99] bg-white opacity-0 duration-300 ${show&& '-translate-y-full opacity-30'}`} 
+            className={`w-screen h-screen fixed top-full left-0 z-[99] bg-white opacity-0 duration-300 ${show? '-translate-y-full opacity-30':' pointer-events-none'}`} 
             onClick={()=>action(false)}
         />
         :
