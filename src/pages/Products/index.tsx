@@ -22,7 +22,7 @@ const ProductsPage = () => {
     const [maxPages, setMaxPages] = useState<number>(0)
     const [isLoading, setIsLoading] = useState<boolean>(true)
 
-    const handlePriceChange = (event: Event, newValue: number[], activeThumb: number) => {
+    const handlePriceChange = (_event: Event, newValue: number[], activeThumb: number) => {
         if (activeThumb === 0) {
             setValue([Math.min(newValue[0], value[1] - 10), value[1]]);
         } else {
