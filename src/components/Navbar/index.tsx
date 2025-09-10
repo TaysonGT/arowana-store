@@ -1,7 +1,6 @@
 import Logo from '/src/assets/imgs/logo.png'
 import { links } from './links'
 import { Link } from 'react-router'
-import { FaArrowRight } from 'react-icons/fa'
 import { MdOutlineSearch } from 'react-icons/md'
 import { RiUserLine } from 'react-icons/ri'
 import { PiShoppingCart } from 'react-icons/pi'
@@ -14,18 +13,18 @@ interface Props {
 const Navbar:React.FC<Props> = ({fixable}) => {
   const [scroll, setScroll] = useState<number>(0)
 
-  useEffect(()=>{
-    window.addEventListener('scroll', ()=>{
-      setScroll(window.scrollY)
-    })
+  const handleScroll = ()=>{
+    setScroll(window.scrollY)
+  }
 
-    return ()=>window.removeEventListener('scroll', ()=>{
-      setScroll(window.scrollY)
-    })
+  useEffect(()=>{
+    window.addEventListener('scroll', handleScroll, {passive: true})
+    
+    return ()=>window.removeEventListener('scroll', handleScroll)
   },[])
 
   return (
-    <div className={`w-full z-99 py-[10px] bg-white text-black duration-150 ${fixable&& scroll>300?'fixed animate-slide-in z-300 shadow-xl': 'relative'}`}>
+    <div className={`w-full z-99 py-[10px] bg-white text-black duration-150 ${fixable&& scroll>200?'fixed animate-slide-in z-300 shadow-xl': 'relative'}`}>
         <div className='flex w-[80%] mx-auto'>
             <div className='flex items-center flex-1 p-2'>
               <img src={Logo} className='' alt="" />

@@ -14,8 +14,8 @@ const Hero = () => {
 
   return (
     <section className='w-full relative group h-screen flex flex-col bg-[#F2F6F7]'>
-        <Navbar fixable />
-        <div className='w-full grow overflow-hidden'>
+        
+        <div className='w-full h-full overflow-hidden'>
           <Swiper 
             onSwiper={(swiper: any) => (swiperRef.current = swiper)}
             modules={[Navigation]}

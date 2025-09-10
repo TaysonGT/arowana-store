@@ -4,6 +4,7 @@ import { ToastContainer } from 'react-toastify'
 import LandingPage from './pages/Landing'
 import 'swiper/css'
 import 'swiper/css/navigation'
+import PublicRoutes from './routes/PublicRoutes'
 
 function App() {
   return (
@@ -14,7 +15,9 @@ function App() {
       theme='dark'
     />
     <Routes>
-      <Route path='/' element={<LandingPage />}/>
+      <Route path='/' element={<PublicRoutes />}>
+        <Route index element={<LandingPage />}/>
+      </Route>
     </Routes>
     </BrowserRouter>
   </>

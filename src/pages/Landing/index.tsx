@@ -8,7 +8,7 @@ import Sixth from './sections/Sixth'
 import Subscription from './sections/Subscription'
 import Eighth from './sections/Eighth'
 import Nineth from './sections/Nineth'
-import Footer from './sections/Footer'
+import Footer from '../../components/Footer'
 
 const LandingPage = () => {
   
@@ -24,7 +24,6 @@ const LandingPage = () => {
       <Subscription/>
       <Eighth/>
       <Nineth/>
-      <Footer/>
     </div>
   )
 }
