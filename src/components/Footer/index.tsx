@@ -75,7 +75,7 @@ const Footer = () => {
                 <p>Subscribe to our weekly Newsletter and receive updates via email.</p>
                 <div className='flex w-full items-stretch my-6'>
                     <input className="bg-white grow px-6" placeholder="Email" type="text" />
-                    <button className='px-8 py-3 z-0 bg-[#FFB400] text-nowrap hover:bg-white hover:text-black border border-[#FFB400] hover:border-black duration-400 text-white text-lg font-bold shop_now cursor-pointer uppercase'><BsSendArrowUpFill/></button>
+                    <button className='px-8 py-3 z-0 bg-[#FFB400] text-nowrap hover:bg-white hover:text-black border border-[#FFB400] hover:border-black duration-400 text-white text-lg font-bold ltr cursor-pointer uppercase'><BsSendArrowUpFill/></button>
                 </div>
                 <div>
                     <h1 className='text-lg font-bold mb-4'>We Accept</h1>

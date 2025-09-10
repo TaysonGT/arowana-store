@@ -5,7 +5,7 @@ const Subscription = () => {
         <p className="font-[Playfair] leading-6">Sign up to our newsletter to receive grooming tips, style inspiration, <br/> exclusive access to pre-launch product pricing and more.</p>
         <div className='flex w-[50%] items-stretch'>
             <input className="bg-white grow px-6" placeholder="Email" type="text" />
-            <button className='px-8 py-3 z-0 bg-[#FFB400] text-nowrap hover:bg-white hover:text-black border border-[#FFB400] hover:border-black duration-400 text-white text-lg font-bold shop_now cursor-pointer uppercase'>Subscribe</button>
+            <button className='px-8 py-3 z-0 bg-[#FFB400] text-nowrap hover:bg-white hover:text-black border border-[#FFB400] hover:border-black duration-400 text-white text-lg font-bold ltr cursor-pointer uppercase'>Subscribe</button>
         </div>
     </section>
   )

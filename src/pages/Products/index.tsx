@@ -162,7 +162,7 @@ const ProductsPage = () => {
                     <h1 className="text-xl font-bold mb-6">Search Products</h1>
                     <form onSubmit={searchSubmit} className='flex items-stretch'>
                         <input value={searchString} onChange={(e)=>setSearchString(e.currentTarget.value)} className="bg-gray-100 grow px-6" placeholder="Search..." type="search" />
-                        <button type="submit" className='p-4 z-0 bg-[#FFB400] text-nowrap hover:bg-white hover:text-black border border-[#FFB400] hover:border-black duration-400 text-white text-lg font-bold shop_now cursor-pointer uppercase'><BiSearchAlt/></button>
+                        <button type="submit" className='p-4 shrink-0 z-0 bg-[#FFB400] text-nowrap hover:bg-white hover:text-black border border-[#FFB400] hover:border-black duration-400 text-white text-lg font-bold ltr cursor-pointer uppercase'><BiSearchAlt/></button>
                     </form>
                 </div>
                 <div className="p-10 w-full overflow-hidden shadow-lg">
