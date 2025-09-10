@@ -6,6 +6,7 @@ import 'swiper/css'
 import 'swiper/css/navigation'
 import PublicRoutes from './routes/PublicRoutes'
 import ProductsPage from './pages/Products'
+import CartPage from './pages/Cart'
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
       <Route path='/' element={<PublicRoutes />}>
         <Route index element={<LandingPage />}/>
         <Route path='/products' element={<ProductsPage />}/>
+        <Route path='/cart' element={<CartPage />}/>
       </Route>
     </Routes>
     </BrowserRouter>

@@ -7,7 +7,7 @@ import { Loader, ProductCard } from "../../components/ui";
 import { BsArrowRight } from "react-icons/bs";
 import { BiSearchAlt } from "react-icons/bi";
 import Slider from '@mui/material/Slider';
-import { useSearchParams } from "react-router";
+import { Link, useSearchParams } from "react-router";
 
 type pageAction = "next" | "previous" | "start" | "end"
 
@@ -182,9 +182,9 @@ const ProductsPage = () => {
                     />
                 </div>
                 <div className="w-full overflow-hidden shadow-lg">
-                    <a href='#'>
+                    <Link to='#'>
                         <img className="h-full" src="/src/assets/imgs/promo/13.jpg" alt="" />
-                    </a>
+                    </Link>
                 </div>
             </div>
         </div>

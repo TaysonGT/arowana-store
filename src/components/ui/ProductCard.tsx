@@ -1,5 +1,6 @@
 import { FaEye } from 'react-icons/fa'
 import { PiHeart, PiShoppingCart } from 'react-icons/pi'
+import { Link } from 'react-router'
 
 const ProductCard = ({product}:{product:any}) => {
   return (
@@ -16,9 +17,9 @@ const ProductCard = ({product}:{product:any}) => {
             </button>
         </div>
         <div className="min-h-50">
-            <a href='#'>
+            <Link to='#'>
                 <img className="h-full object-cover" src={product.images[0]} alt="" />
-            </a>
+            </Link>
         </div>
         <p className="font-[Playfair] text-lg font-bold text-center">{product.title}</p>
         <div className="flex items-center gap-2">

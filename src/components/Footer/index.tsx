@@ -30,10 +30,10 @@ const Footer = () => {
                         <a href='mailto:example@example.com'>example@example.com</a>
                     </li>
                     <li className='flex items-center gap-6 mt-4 text-lg'>
-                        <a className='hover:text-[#FFB400] duration-100 cursor-pointer'><FaFacebookF/></a>
-                        <a className='hover:text-[#FFB400] duration-100 cursor-pointer'><FaTwitter/></a>
-                        <a className='hover:text-[#FFB400] duration-100 cursor-pointer'><FaLinkedinIn/></a>
-                        <a className='hover:text-[#FFB400] duration-100 cursor-pointer'><FaYoutube/></a>
+                        <a className='hover:text-[#FFB400] duration-100 cursor-pointer' href='#'><FaFacebookF/></a>
+                        <a className='hover:text-[#FFB400] duration-100 cursor-pointer' href='#'><FaTwitter/></a>
+                        <a className='hover:text-[#FFB400] duration-100 cursor-pointer' href='#'><FaLinkedinIn/></a>
+                        <a className='hover:text-[#FFB400] duration-100 cursor-pointer' href='#'><FaYoutube/></a>
                     </li>
                 </ul>
             </div>
