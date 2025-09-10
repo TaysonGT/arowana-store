@@ -1,3 +1,5 @@
+import BeardOil from '/src/assets/imgs/6.png'
+
 const Second = () => {
   return (
     <section className='flex py-30 w-full grow items-center justify-center basis-0'>
@@ -11,7 +13,7 @@ const Second = () => {
             <button className='px-8 py-3 bg-transparent border-1 cursor-pointer border-black text-lg hover:text-white hover:border-[#FFB400] hover:bg-[#FFB400] duration-400 font-bold view_more relative overflow-hidden'>VIEW MORE</button>
           </div>
           <div className='flex-1 pl-6'>
-            <img src='/src/assets/imgs/6.png' alt="" />
+            <img src={BeardOil} alt="" />
           </div>
         </div>
     </section>

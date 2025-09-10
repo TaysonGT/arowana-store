@@ -23,6 +23,10 @@
     }
 }
 
+body{
+    font-family: sans-serif;
+}
+
 .view_more::before {
     content: '';
     position: absolute;

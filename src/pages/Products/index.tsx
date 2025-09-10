@@ -13,7 +13,7 @@ type pageAction = "next" | "previous" | "start" | "end"
 
 
 const ProductsPage = () => {
-    const [products, setProducts] = useState<any[]>([]);
+    const [productsData, setProductsData] = useState<{products: any[], skip: number, limit: number, total: number}|null>(null);
     const [categories, setCategories] = useState<any[]>([]);
     const [value, setValue] = useState<number[]>([0, 9999]);
     const [searchParams, setSearchParams] = useSearchParams()
@@ -71,11 +71,11 @@ const ProductsPage = () => {
     const refetch = async () => {
         setIsLoading(true)
         const category = searchParams.get('category')
-        setProducts([]);
+        setProductsData(null);
         await axios
         .get(`https://dummyjson.com/products${searchString?`/search?q=${searchString}`:category?'/category/'+category:''}?limit=10&skip=${(pageCount-1)*10}`)
         .then(({ data }) => {
-            setProducts(data.products);
+            setProductsData(data);
             setMaxPages(Math.ceil(data.total/10))
         });
         await axios
@@ -103,7 +103,7 @@ const ProductsPage = () => {
                         <IoGrid/>
                         <FaList/>
                     </div>
-                    <div className="flex-1 text-center font-[Playfair] text-lg">Showing 1–9 of 21 results</div>
+                    <div className="flex-1 text-center font-[Playfair] text-lg">Showing {productsData&& (productsData.limit+productsData.skip===productsData.total?`${productsData.skip+1}-${productsData.total}`: `${productsData.skip+1}-${productsData.skip+productsData.limit}`)} of {productsData?.total} results</div>
                     <div className="flex-1 text-end">
                         <select className="border border-gray-300 px-4 py-2 rounded-md">
                             <option value="default">Default sorting</option>
@@ -119,13 +119,13 @@ const ProductsPage = () => {
                     <div className="flex justify-center py-40 items-center mt-10">
                         <Loader size={50} thickness={10}/>
                     </div>
-                :products.length===0?
+                :productsData?.products.length===0?
                     <div className="flex justify-center py-40 items-center mt-10">
                         <h1 className="text-gray-600 text-2xl">No Products Found</h1>
                     </div>
                 :
                 <div className="grid grid-cols-3 gap-10 mt-10">
-                    {products.map((product, i)=>
+                    {productsData?.products.map((product, i)=>
                         <ProductCard key={i} product={product}/>
                     )}
                 </div>

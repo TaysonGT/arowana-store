@@ -1,16 +1,20 @@
-import { Outlet } from 'react-router'
+import { Outlet, useLocation } from 'react-router'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
+import { useLayoutEffect } from 'react'
 
 const PublicRoutes = () => {
+  const { pathname } = useLocation()
+  useLayoutEffect(() => {
+    window.scrollTo(0, 0)
+  }, [pathname])
+
   return (
-    // <div className='w-screen h-screen overflow-x-hidden'>
     <>
         <Navbar fixable />
         <Outlet />
         <Footer />
     </>
-    // </div>
   )
 }
 
