@@ -5,7 +5,7 @@ import LandingPage from './pages/Landing'
 import 'swiper/css'
 import 'swiper/css/navigation'
 import PublicRoutes from './routes/PublicRoutes'
-import ProductsPage from './pages/Products'
+import ShopPage from './pages/Shop'
 import CartPage from './pages/Cart'
 
 function App() {
@@ -19,7 +19,7 @@ function App() {
     <Routes>
       <Route path='/' element={<PublicRoutes />}>
         <Route index element={<LandingPage />}/>
-        <Route path='/products' element={<ProductsPage />}/>
+        <Route path='/shop' element={<ShopPage />}/>
         <Route path='/cart' element={<CartPage />}/>
       </Route>
     </Routes>

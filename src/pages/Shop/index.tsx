@@ -12,7 +12,7 @@ import { Link, useSearchParams } from "react-router";
 type pageAction = "next" | "previous" | "start" | "end"
 
 
-const ProductsPage = () => {
+const ShopPage = () => {
     const [productsData, setProductsData] = useState<{products: any[], skip: number, limit: number, total: number}|null>(null);
     const [categories, setCategories] = useState<any[]>([]);
     const [value, setValue] = useState<number[]>([0, 9999]);
@@ -142,7 +142,7 @@ const ProductsPage = () => {
                     <div onClick={()=>changePage('end')} className={`w-12 hover:bg-[#FFB400] hover:text-white hover:border-[#FFB400] cursor-pointer  duration-150 aspect-square flex justify-center items-center border border-${pageCount<maxPages? 'black  cursor-pointer': 'gray-200 text-gray-500 cursor-not-allowed'}`}><MdKeyboardDoubleArrowRight/></div>
                 </div>
             </div>
-            <div className="flex flex-col gap-10 w-90 shrink-0">
+            <div className="flex flex-col gap-10 w-1/4 shrink-0">
                 <div className="p-10 shadow-lg">
                     <h1 className="text-xl font-bold">Product Categories</h1>
                     <div className="flex flex-col gap-4 mt-8">
@@ -158,11 +158,11 @@ const ProductsPage = () => {
                         )}
                     </div>
                 </div>
-                <div className="p-10 w-full overflow-hidden shadow-lg">
+                <div className="p-10 w-full shadow-lg">
                     <h1 className="text-xl font-bold mb-6">Search Products</h1>
-                    <form onSubmit={searchSubmit} className='flex items-stretch'>
-                        <input value={searchString} onChange={(e)=>setSearchString(e.currentTarget.value)} className="bg-gray-100 grow px-6" placeholder="Search..." type="search" />
-                        <button type="submit" className='p-4 shrink-0 z-0 bg-[#FFB400] text-nowrap hover:bg-white hover:text-black border border-[#FFB400] hover:border-black duration-400 text-white text-lg font-bold ltr cursor-pointer uppercase'><BiSearchAlt/></button>
+                    <form onSubmit={searchSubmit} className='flex overflow-x-hidden w-full items-stretch'>
+                        <input value={searchString} onChange={(e)=>setSearchString(e.currentTarget.value)} className="grow bg-gray-100 pl-6" placeholder="Search..." type="search" />
+                        <button type="submit" className='bg-[#FFB400] hover:bg-white p-2 aspect-square flex justify-center items-center text-xl hover:text-black border border-[#FFB400] hover:border-black duration-400 text-white font-bold  cursor-pointer uppercase'><BiSearchAlt/></button>
                     </form>
                 </div>
                 <div className="p-10 w-full overflow-hidden shadow-lg">
@@ -192,4 +192,4 @@ const ProductsPage = () => {
   )
 }
 
-export default ProductsPage
+export default ShopPage
