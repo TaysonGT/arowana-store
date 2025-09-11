@@ -4,7 +4,7 @@ import ProductsPreview from './sections/ProductsPreview'
 import Second from './sections/Second'
 import Third from './sections/Third'
 import Fifth from './sections/Fifth'
-import Sixth from './sections/Sixth'
+import Testimonials from './sections/Testimonials'
 import Subscription from './sections/Subscription'
 import Eighth from './sections/Eighth'
 
@@ -18,7 +18,7 @@ const LandingPage = () => {
       <ProductsPreview/>
       <Fourth/>
       <Fifth/>
-      <Sixth/>
+      <Testimonials/>
       <Subscription/>
       <Eighth/>
     </div>
