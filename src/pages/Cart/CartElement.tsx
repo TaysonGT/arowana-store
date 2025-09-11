@@ -2,32 +2,24 @@
 
 import { useEffect, useState } from "react"
 import { Link } from "react-router"
+import { useCart } from "../../context/CartContext";
 
-const CartElement = ({item, setItems}:{item:any, setItems: React.Dispatch<React.SetStateAction<any[]>>}) => {
+const CartElement = ({item}:{item:any}) => {
   const [quantity, setQuantity] = useState<number>(item.quantity)
 
+  const { editItemQuantity } = useCart();
+
+
   const increaseQuantity = ()=>{
-    setItems(prev=> {
-      const array = [...prev]
-      array[array.findIndex(i=> i.id === item.id)].quantity ++
-      return array
-    })
+    setQuantity(prev=> prev+1)  
   }
 
   const decreaseQuantity = ()=>{
-    setItems(prev=> {
-      const array = [...prev]
-      array[array.findIndex(i=> i.id === item.id)].quantity --
-      return array
-    })
+    setQuantity(prev=> Math.max(1, prev-1))
   }
   
   useEffect(()=>{
-    setItems(prev=> {
-      const array = [...prev]
-      array[array.findIndex(i=> i.id === item.id)].quantity = quantity
-      return array
-    })
+    editItemQuantity(item.id, quantity)
   },[quantity])
 
   return (

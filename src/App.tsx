@@ -8,6 +8,7 @@ import PublicRoutes from './routes/PublicRoutes'
 import ShopPage from './pages/Shop'
 import CartPage from './pages/Cart'
 import ProductPage from './pages/Product'
+import { CartProvider } from './context/CartContext'
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
       position='top-left' 
       theme='dark'
     />
+    <CartProvider>
     <Routes>
       <Route path='/' element={<PublicRoutes />}>
         <Route index element={<LandingPage />}/>
@@ -25,6 +27,7 @@ function App() {
         <Route path='/cart' element={<CartPage />}/>
       </Route>
     </Routes>
+    </CartProvider>
     </BrowserRouter>
   </>
   )

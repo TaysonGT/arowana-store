@@ -3,11 +3,12 @@ import { useEffect, useState } from 'react'
 import { BiHeart } from 'react-icons/bi'
 import PaymentImg from '/src/assets/imgs/payment-4.png'
 import { FaFacebookF, FaInstagram, FaLinkedinIn, FaRegStar, FaShoppingCart, FaStar, FaStarHalfAlt, FaTwitter, FaUser } from 'react-icons/fa'
-import { MdArrowForwardIos, MdOutlineCompareArrows } from 'react-icons/md'
+import { MdArrowForwardIos, MdOutlineCompareArrows, MdRemoveShoppingCart } from 'react-icons/md'
 import { Link, useParams } from 'react-router'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation } from 'swiper/modules'
 import { Loader } from '../../components/ui'
+import { useCart } from '../../context/CartContext'
 
 const ProductPage = () => {
   const {id} = useParams<{id:string}>()
@@ -17,7 +18,8 @@ const ProductPage = () => {
   const [isLoading, setIsLoading] = useState(true)
   const [selectedImage, setSelectedImage] = useState(0)
   const [selectedSector, setSelectedSector] = useState<'description'|'reviews'>('description')
-  
+  const {addToCart, isInCart, removeFromCart} = useCart()
+
   useEffect(()=>{
     axios.get(`https://dummyjson.com/products/${id}`).then(({data})=>{
       setProduct(data)
@@ -88,12 +90,17 @@ const ProductPage = () => {
                             <p className='capitalize font-bold'>{product?.category}, {product?.brand}</p>
                         </div>
                         <div className='mt-4 flex gap-4'>
+                            {!isInCart(product.id) ?
+                            <>
                             <div className="flex items-stretch">
-                                <button onClick={()=>setQuantity(prev=>prev-1)} className="border border-gray-200 p-2 w-10 aspect-square">-</button>
+                                <button onClick={()=>setQuantity(prev=>Math.max(prev-1,1))} className="border border-gray-200 p-2 w-10 aspect-square">-</button>
                                 <input onChange={(e)=>setQuantity(parseInt(e.currentTarget.value))} className="text-center flex items-center justify-center border border-gray-300 w-10 aspect-square" type="number" min={1} value={quantity} />
                                 <button onClick={()=>setQuantity(prev=>prev+1)} className="border border-gray-200 p-2 w-10 aspect-square">+</button>
                             </div>
-                            <button className='text-white px-8 py-3 font-bold hover:bg-transparent cursor-pointer hover:text-black hover:border-black border border-[#FFB400] ltr duration-300 text-nowrap flex items-center gap-2'><FaShoppingCart/> Add to Cart</button>
+                            <button onClick={()=>addToCart({...product, quantity})} className='text-white px-8 py-3 font-bold hover:bg-transparent cursor-pointer hover:text-black hover:border-black border border-[#FFB400] ltr duration-300 text-nowrap flex items-center gap-2 uppercase'><FaShoppingCart/> Add to Cart</button>
+                            </>:
+                                <button onClick={()=>removeFromCart(product.id)} className=' px-8 py-3 font-bold text-white hover:bg-transparent cursor-pointer hover:border-black hover:text-black border border-[#000] rtl duration-300 text-nowrap flex items-center gap-2 uppercase'><MdRemoveShoppingCart /> Remove From Cart</button> 
+                            }
                         </div>
                         <div className='flex gap-6 mt-4'>
                             <button className='flex gap-2 items-center font-[Playfair] font-bold hover:text-[#FFB400] duration-200 cursor-pointer'><BiHeart className='text-xl'/>Add to Wishlist</button>

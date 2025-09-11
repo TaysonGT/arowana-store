@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { IoClose } from 'react-icons/io5'
 import { RiCloseFill } from 'react-icons/ri'
 import { useNavigate } from 'react-router'
-import {cartItems as items} from '../pages/Cart/cartItems'
+import { useCart } from '../context/CartContext'
 
 interface Props {
     show: boolean,
@@ -10,23 +10,8 @@ interface Props {
 }
 
 const Cart:React.FC<Props> = ({show, setShow})=>{
-    const [cartItems, setCartItems] = useState<typeof items>([])
-    const [total, setTotal] = useState(0)
     const nav = useNavigate()
-
-    // const handleEditItem = (e:React.MouseEvent<HTMLButtonElement>)=>{
-    // }
-    
-    // const handleRemoveItem = (e:React.MouseEvent<HTMLButtonElement>, id:number)=>{
-    //     setCartItems(prev=> prev.filter(item=>item.id!=id))
-    // }
-
-    useEffect(()=>{
-        let total = 0        
-        items.map(item=> total+= item.price * item.quantity)
-        setCartItems(items)
-        setTotal(total)
-    },[])
+    const {total, cartItems, removeFromCart} = useCart()
 
     return (
         <div className={`fixed flex flex-col ${!show&&'pointer-events-none'} top-0 h-screen bg-white text-black left-full duration-300 z-[200] p-10 w-100 ${show&& '-translate-x-full'}`}>
@@ -36,13 +21,13 @@ const Cart:React.FC<Props> = ({show, setShow})=>{
             </div>
             <div className='flex flex-col grow overflow-y-auto relative gap-2 py-3'>
                 {cartItems.map(item=>
-                <div className='relative py-4 flex items-start shadow-soft text-sm select-none group border-b border-gray-200' key={item.id}>
-                    <div className='absolute top-2 right-0 shadow-md z-200 -translate-1/2 rounded-full bg-white hover:bg-red-500 hover:text-white duration-150 cursor-pointer p-1'><IoClose/></div>
-                    <div className='relative w-20 bg-[#F2F6F7]'>
+                <div className='relative py-4 flex items-start shadow-soft text-sm select-none group border-b border-gray-200 overflow-hidden' key={item.id}>
+                    <div onClick={()=>removeFromCart(item.id)} className='absolute top-4 right-0 shadow-md z-200 -translate-1/2 rounded-full bg-white hover:bg-red-500 hover:text-white duration-150 cursor-pointer p-1'><IoClose/></div>
+                    <div className='relative w-20 shrink-0 bg-[#F2F6F7]'>
                         <img className='w-full object-cover' src={item.thumbnail} alt="" />
                     </div>
-                    <div className='px-6 grow'>
-                        <p className='text-nowrap font-bold text-lg'>{item.title}</p>
+                    <div className='px-6 grow truncate min-w-0'>
+                        <p className='text-nowrap font-bold text-lg truncate min-w-0'>{item.title}</p>
                         <p className='text-lg'>{item.quantity}x ${item.price}</p>
                     </div>
                 </div>

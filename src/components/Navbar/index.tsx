@@ -9,6 +9,7 @@ import DarkBackground from '../ui/DarkBackground'
 import Cart from '../Cart'
 import { LightBackground } from '../ui'
 import SearchBar from '../SearchBar'
+import { useCart } from '../../context/CartContext'
 
 interface Props {
   fixable?: boolean;
@@ -18,7 +19,8 @@ const Navbar:React.FC<Props> = ({fixable}) => {
   const [scroll, setScroll] = useState<number>(0)
   const [showCart, setShowCart] = useState<boolean>(false)
   const [showSearchbar, setShowSearchbar] = useState<boolean>(false)
-  
+  const {cartItems} = useCart()
+
   const handleScroll = ()=>{
     setScroll(window.scrollY)
   }
@@ -67,7 +69,7 @@ const Navbar:React.FC<Props> = ({fixable}) => {
                 <Link to='/'><RiUserLine className='hover:scale-[1.15] duration-200'/></Link>
                 <div onClick={()=> setShowCart(true)} className='cursor-pointer group relative'>
                   <PiShoppingCart className='group-hover:scale-[1.15] duration-200 '/>
-                  <span className='absolute -top-1 -right-2 text-xs text-gray-700 font-bold'>0</span>
+                  <span className='absolute -top-1 -right-2 text-xs text-gray-700 font-bold'>{cartItems.length}</span>
                 </div>
                 {/* <RiMenuFill className='cursor-pointer hover:scale-[1.15] duration-75'/> */}
             </div>
