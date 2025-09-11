@@ -1,6 +1,7 @@
 // import { useState } from "react"
 
 import { useEffect, useState } from "react"
+import { Link } from "react-router"
 
 const CartElement = ({item, setItems}:{item:any, setItems: React.Dispatch<React.SetStateAction<any[]>>}) => {
   const [quantity, setQuantity] = useState<number>(item.quantity)
@@ -32,7 +33,7 @@ const CartElement = ({item, setItems}:{item:any, setItems: React.Dispatch<React.
   return (
     <div className='relative py-4 flex justify-between w-full items-center shadow-soft text-sm select-none group border-b border-gray-200' key={item.id}>
         <div className='relative h-30'>
-            <img className='h-full object-cover' src={item.thumbnail} alt="" />
+            <Link to={`/products/${item.id}`}><img className='h-full object-cover' src={item.thumbnail} alt="" /></Link>
         </div>
         <p className='text-nowrap font-bold text-xl '>{item.title}</p>
         <p className='text-lg '>${item.price}</p>
