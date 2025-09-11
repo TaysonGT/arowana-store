@@ -10,6 +10,7 @@ An Ecommerce React App inspired by Beard products branding, using mock products 
   - Shop
   - Product
   - Cart
+  - Checkout
 * State Management
   * ContextApi for Cart 
 
