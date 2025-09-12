@@ -35,14 +35,17 @@ const Cart:React.FC<Props> = ({show, setShow})=>{
             </div>
             <div className='flex font-bold text-lg py-4 mb-4 border-y border-gray-200 justify-between gap-4'>
                 <p>Subtotal:</p>
-                <p className='text-[#FFB400]'>${total}</p>
+                <p className='text-[#FFB400]'>${total.toFixed(2)}</p>
             </div>
             <div className='flex mt-auto justify-between gap-4'>
                 <button onClick={()=>{
                     nav('/cart')
                     setShow(false)
                     }} className='px-8 py-2 z-0 bg-[#FFB400] hover:bg-transparent hover:text-[#071c1f] border border-[#FFB400] hover:border-[#071c1f] duration-400 text-white text-lg ltr btn cursor-pointer'>View Cart</button>
-                <button className='px-8 py-2 z-0 bg-[#FFB400] hover:bg-transparent border border-[#071c1f] hover:border-[#FFB400] duration-400 text-white hover:text-[#071c1f] text-lg rtl btn cursor-pointer'>Checkout</button>
+                <button onClick={()=>{
+                    nav('/checkout')
+                    setShow(false)
+                    }} className='px-8 py-2 z-0 bg-[#FFB400] hover:bg-transparent border border-[#071c1f] hover:border-[#FFB400] duration-400 text-white hover:text-[#071c1f] text-lg rtl btn cursor-pointer'>Checkout</button>
             </div>
             <p className='mt-4 font-[Playfair]'>Free Shippping on All Orders Over $100!</p>
         </div>

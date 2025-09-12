@@ -12,7 +12,30 @@ const CheckoutPage = () => {
             <p className="text-black font-bold font-[Playfair] mt-4 flex items-center gap-2">Home <MdArrowForwardIos className="text-sm"/> <span className='text-[#071c1f]'>Checkout</span></p>
         </div>
         <div className='flex flex-col w-[70%] mx-auto py-20'>
-            <div className='flex gap-2 font-bold text-lg py-4 px-8 bg-[#F2F6F7]'>
+          <div className="mt-6 w-100 flex flex-col">
+              <h1 className="text-2xl font-bold">Your Order</h1>
+              <table className="text-[#212524] mt-4 font-light">
+                <tbody>
+                  <tr className='bg-gray-100 border-t border-gray-200 '>
+                    <td className="font-[Playfair] p-4">Cart Subtotal:</td>
+                    <td>${total.toFixed(2)}</td>
+                  </tr>
+                  <tr className='bg-gray-50 border-t border-gray-200 '>
+                    <td className="font-[Playfair] p-4">Shipping and Handling</td>
+                    <td>$15.00</td>
+                  </tr>
+                  <tr className='bg-gray-50 border-t border-gray-200 '>
+                    <td className="font-[Playfair] p-4">VAT</td>
+                    <td>$00.00</td>
+                  </tr>
+                  <tr className='bg-gray-50 border-t border-gray-200 font-bold text-black '>
+                    <td className="font-[Playfair] p-4">Order Total</td>
+                    <td>${(15.00+total).toFixed(2)}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div className='flex gap-2 font-bold text-lg py-4 px-8 mt-10 bg-[#F2F6F7]'>
                 <p>Returning Customer?</p>
                 <Link className='font-bold text-[#FFB400]' to='#'>Click here to login</Link>
             </div>
@@ -20,6 +43,7 @@ const CheckoutPage = () => {
                 <p>Have a coupon?</p>
                 <Link className='font-bold text-[#FFB400]' to='#'>Click here to enter your code</Link>
             </div>
+            
             <div className='mt-6'>
                 <h1 className='text-2xl font-bold mt-10'>Billing Details</h1>
                 <form action="" className='grid grid-cols-2 gap-6 mt-6 p-10 border border-gray-200 rounded-sm'>
@@ -64,30 +88,6 @@ const CheckoutPage = () => {
                     </div>
                     <button className='px-8 py-3 col-span-2 uppercase z-0 bg-[#FFB400] hover:bg-transparent hover:text-black border border-[#FFB400] hover:border-black duration-400 text-white text-lg font-bold ltr cursor-pointer'>Place Order</button>
                 </div>
-            </div>
-            <div className="mt-6 w-100 flex flex-col">
-              <h1 className="text-2xl font-bold">Your Order</h1>
-              <table className="text-[#212524] mt-4 font-light">
-                <tbody>
-                  <tr className='bg-gray-100 border-t border-gray-200 '>
-                    <td className="font-[Playfair] p-4">Cart Subtotal:</td>
-                    <td>${total.toFixed(2)}</td>
-                  </tr>
-                  <tr className='bg-gray-50 border-t border-gray-200 '>
-                    <td className="font-[Playfair] p-4">Shipping and Handling</td>
-                    <td>$15.00</td>
-                  </tr>
-                  <tr className='bg-gray-50 border-t border-gray-200 '>
-                    <td className="font-[Playfair] p-4">VAT</td>
-                    <td>$00.00</td>
-                  </tr>
-                  <tr className='bg-gray-50 border-t border-gray-200 font-bold text-black '>
-                    <td className="font-[Playfair] p-4">Order Total</td>
-                    <td>${(15.00+total).toFixed(2)}</td>
-                  </tr>
-                </tbody>
-              </table>
-              <button className='px-8 py-3 z-0 bg-[#FFB400] hover:bg-transparent hover:text-[#071c1f] border border-[#FFB400] hover:border-[#071c1f] duration-400 text-white text-base ltr btn cursor-pointer'>Proceed To Checkout</button>
             </div>
             
         </div>

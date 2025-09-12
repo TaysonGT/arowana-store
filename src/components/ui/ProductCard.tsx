@@ -7,7 +7,7 @@ const ProductCard = ({product}:{product:any}) => {
     const {addToCart} = useCart();
   return (
     <div className="relative flex flex-col items-center gap-2 border border-gray-100 p-6 hover:shadow-2xl duration-200 group/card">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-20 grid grid-cols-3 basis-0 bg-white shadow-xl opacity-0 duration-300 group-hover/card:-translate-1/2 group-hover/card:opacity-100 ease-in-out text-lg">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-20 flex basis-0 bg-white shadow-xl opacity-0 duration-300 group-hover/card:-translate-1/2 group-hover/card:opacity-100 ease-in-out text-lg">
             <button className="flex-1 p-4 hover:bg-amber-400 duration-200 hover:text-white border-r border-gray-300 hover:border-amber-400 cursor-pointer">
             <FaEye />
             </button>

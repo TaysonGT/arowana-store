@@ -27,7 +27,7 @@ const CartPage = () => {
             <button className='px-8 py-2 z-0 bg-[#FFB400] hover:bg-transparent hover:text-[#071c1f] border border-[#FFB400] hover:border-[#071c1f] duration-400 text-white text-lg ltr btn cursor-pointer'>Update Cart</button>
         </div>
         <div className='flex font-bold text-lg py-10 mb-4 justify-end gap-4'>
-            <div className="w-100 flex flex-col">
+            <div className="w-100 flex flex-col font-[Roboto]">
               <h1 className="text-xl font-bold">Cart Totals</h1>
               <table className="text-[#212524] mt-4 font-light">
                 <tbody>
@@ -49,7 +49,7 @@ const CartPage = () => {
                   </tr>
                 </tbody>
               </table>
-              <button className='px-8 py-3 z-0 bg-[#FFB400] hover:bg-transparent hover:text-[#071c1f] border border-[#FFB400] hover:border-[#071c1f] duration-400 text-white text-base ltr btn cursor-pointer'>Proceed To Checkout</button>
+              <Link to='/checkout' className='px-8 py-3 z-0 bg-[#FFB400] uppercase font-sans  hover:bg-transparent hover:text-[#071c1f] border border-[#FFB400] hover:border-[#071c1f] duration-400 text-white text-base ltr btn cursor-pointer text-center'>Proceed To Checkout</Link>
             </div>
         </div>
       </div>
