@@ -1,5 +1,5 @@
 import React from 'react'
-import { IoClose } from 'react-icons/io5'
+import { IoClose, IoRemoveCircle } from 'react-icons/io5'
 import { RiCloseFill } from 'react-icons/ri'
 import { useNavigate } from 'react-router'
 import { useCart } from '../context/CartContext'
@@ -11,7 +11,7 @@ interface Props {
 
 const Cart:React.FC<Props> = ({show, setShow})=>{
     const nav = useNavigate()
-    const {total, cartItems, removeFromCart} = useCart()
+    const {total, cartItems, removeFromCart, clearCart} = useCart()
 
     return (
         <div className={`fixed flex flex-col ${!show&&'pointer-events-none'} top-0 h-screen bg-white text-black left-full duration-300 z-[200] p-10 w-100 ${show&& '-translate-x-full'}`}>
@@ -20,8 +20,10 @@ const Cart:React.FC<Props> = ({show, setShow})=>{
                 <RiCloseFill onClick={()=>setShow(false)} className='text-red-700 hover:text-red-400 duration-150 cursor-pointer text-3xl absolute top-0 right-0'/>
             </div>
             <div className='flex flex-col grow overflow-y-auto relative gap-2 py-3'>
+                {cartItems.length>0?
+                <><div onClick={clearCart} className='rounded-sm bg-red-600 text-white px-3 py-2 font-bold text-sm self-start cursor-pointer hover:bg-red-400 duration-200 flex items-center gap-2'><IoRemoveCircle className='text-lg'/> Clear</div>
                 {cartItems.map(item=>
-                <div className='relative py-4 flex items-start shadow-soft text-sm select-none group border-b border-gray-200 overflow-hidden' key={item.id}>
+                <div className='relative py-4 shrink-0 flex items-start shadow-soft text-sm select-none group border-b border-gray-200 overflow-hidden' key={item.id}>
                     <div onClick={()=>removeFromCart(item.id)} className='absolute top-4 right-0 shadow-md z-200 -translate-1/2 rounded-full bg-white hover:bg-red-500 hover:text-white duration-150 cursor-pointer p-1'><IoClose/></div>
                     <div className='relative w-20 shrink-0 bg-[#F2F6F7]'>
                         <img className='w-full object-cover' src={item.thumbnail} alt="" />
@@ -32,6 +34,9 @@ const Cart:React.FC<Props> = ({show, setShow})=>{
                     </div>
                 </div>
                 )}
+                </>:
+                <p className='text-center font-[Playfair] text-lg mt-10 text-gray-600'>Your cart is currently empty.</p>
+                }
             </div>
             <div className='flex font-bold text-lg py-4 mb-4 border-y border-gray-200 justify-between gap-4'>
                 <p>Subtotal:</p>

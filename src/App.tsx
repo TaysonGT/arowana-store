@@ -17,7 +17,8 @@ function App() {
     <BrowserRouter>
     <ToastContainer 
       position='top-left' 
-      theme='dark'
+      // theme='light'
+      autoClose={2000}
     />
     <CartProvider>
     <Routes>

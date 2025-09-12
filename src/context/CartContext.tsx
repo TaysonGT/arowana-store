@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
+import { toast } from 'react-toastify';
 
 interface ICartContext{
     cartItems: any[];
@@ -31,6 +32,7 @@ export const CartProvider: React.FC<React.PropsWithChildren<{}>> = ({ children }
           } 
           const newItems = [...prevItems, { ...item, quantity: item.quantity }];
           cartAction(newItems)
+          toast.success("Added item to cart")
           return newItems
       });
   }
@@ -39,14 +41,17 @@ export const CartProvider: React.FC<React.PropsWithChildren<{}>> = ({ children }
     setCartItems((prevItems) => {
       const newItems = prevItems.filter((item) => item.id !== itemId)
       cartAction(newItems)
+      toast.success("Removed item from cart")
       return newItems
     });
   }
 
   const clearCart = () => {
+    if(cartItems.length===0) return;
     setCartItems([]);
     cartAction([])
     localStorage.removeItem("cartItems");
+    toast.success("Cleared cart successfully!")
   }
 
   const isInCart = (itemId:number)=>{
